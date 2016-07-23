@@ -6,9 +6,9 @@ import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import discordbot.Command;
 
-public class ServerCommand implements Command 
+public class WhoAmICommand implements Command 
 {
-	private final String HELP = "Usage: `?servers`";
+	private final String HELP = "Usage: `?WhoAmI`";
 	@Override
 	public boolean called(String[] args, MessageReceivedEvent event) 
 	{
@@ -18,7 +18,17 @@ public class ServerCommand implements Command
 	@Override
 	public void action(String[] args, MessageReceivedEvent event, List<User> data) 
 	{
-		event.getTextChannel().sendMessage("You can check on the server status at this website: http://cmmcd.com/PokemonGo/");
+		List<User> users = event.getGuild().getUsers();
+		String friskyMention = "FriskyWombat";
+		for(User u: users)
+		{
+			if(u.getUsername().equals("FriskyWombat"))
+			{
+				friskyMention = u.getAsMention();
+				break;
+			}
+		}
+		event.getTextChannel().sendMessage("I am the **pride** and **joy** of the great trainer, " + friskyMention + " who hatched me and raised me as his own!");
 		event.getMessage().deleteMessage();
 	}
 

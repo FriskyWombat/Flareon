@@ -36,6 +36,8 @@ public class HelpCommand implements Command
 					+ "?servers       : Display a website that shows the server status. WIP.\n"
 					+ "?egg <2,5,10>  : Display all the Pokémon that can be hatched by a specific Egg.\n"
 					+ "?egg <Pokémon> : Display which type of egg a specific Pokémon can be hatched.\n"
+					+ "?praise        : Display your love and affection for me.\n"
+					+ "?version       : Displays the current version of Flareon.\n"
 					+ "```\n"
 					+ "These are all of the commands you have access to. A mod can say `?help` to display even more options."
 					);
@@ -48,7 +50,9 @@ public class HelpCommand implements Command
 					+ "?eevee         : Display information about the Eevee nicknaming trick.\n"
 					+ "?servers       : Display a website that shows the server status. WIP.\n"
 					+ "?egg <2,5,10>  : Display all the Pokémon that can be hatched by a specific Egg.\n"
-					+ "?egg <Pokémon> : Display which type of egg a specific Pokémon can be hatched.\n\n"
+					+ "?egg <Pokémon> : Display which type of egg a specific Pokémon can be hatched.\n"
+					+ "?praise        : Display your love and affection for me.\n"
+					+ "?version       : Displays the current version of Flareon.\n"
 					+ "MOD ONLY COMMANDS:\n"
 					+ "?ban @user  : Ban the mentioned user(s). Must be ?confirmed!\n"
 					+ "?confirm    : This will actually finalize the banning.\n"
@@ -57,7 +61,7 @@ public class HelpCommand implements Command
 					+ "```"
 					);
 		}
-		
+		event.getMessage().deleteMessage();
 	}
 
 	@Override

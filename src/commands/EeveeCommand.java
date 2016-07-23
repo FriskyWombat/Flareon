@@ -21,7 +21,7 @@ public class EeveeCommand implements Command
 		event.getTextChannel().sendMessage("Eeveelutions can be controlled by nicknaming your Eevee before evolving!\n"
 				+ "THIS ONLY WORKS ONCE PER EEVEELUTION!\n"
 										+ "Nickname your Eevee one of the following:\nRainer -> Vaporeon\nSparky -> Jolteon\nPyro -> Flareon");
-		
+		event.getMessage().deleteMessage();
 	}
 
 	@Override

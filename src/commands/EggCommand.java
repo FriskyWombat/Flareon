@@ -34,27 +34,23 @@ public class EggCommand implements Command
 	{
 		if(args == null || args.length == 0 || args[0] == null || args[0] == "")
 		{
-			/*List<User> users = event.getMessage().getMentionedUsers();
-			for(User u : users)
-			{
-				event.getGuild().getManager().ban(u, delDays);
-			}*/
 			event.getTextChannel().sendMessage(event.getAuthor().getAsMention() + " " + HELP);
+			event.getMessage().deleteMessage();
 			return;
 		}
 		String[] list = {};
 		String dist = "";
-		if(args[0].contains("2"))
+		if(args[0].equals("2") || args[0].equals("2k") || args[0].equals("2km"))
 		{
 			list = eggList2km;
 			dist = "2km";
 		}
-		if(args[0].contains("5"))
+		if(args[0].equals("5") || args[0].equals("5k") || args[0].equals("5km"))
 		{
 			list = eggList5km;
 			dist = "5km";
 		}
-		if(args[0].contains("10"))
+		if(args[0].equals("10") || args[0].equals("10k") || args[0].equals("10km"))
 		{
 			list = eggList10km;
 			dist = "10km";
@@ -73,7 +69,8 @@ public class EggCommand implements Command
 				//	str+="\n";
 			}
 			str += "```";
-			event.getTextChannel().sendMessage(str);
+			event.getTextChannel().sendMessage(event.getMessage().getAuthor().getAsMention() + " " + str);
+			event.getMessage().deleteMessage();
 		}
 		else  //Search for the given Pokémon and print out its egg group
 		{
@@ -91,6 +88,7 @@ public class EggCommand implements Command
 				if(s.toLowerCase().equals(in.toLowerCase()))
 					out = s + " can be hatched from 10km eggs!";
 			event.getTextChannel().sendMessage(out);
+			event.getMessage().deleteMessage();
 		}
 	}
 

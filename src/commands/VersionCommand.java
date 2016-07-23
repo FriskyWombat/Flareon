@@ -6,9 +6,9 @@ import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import discordbot.Command;
 
-public class ServerCommand implements Command 
+public class VersionCommand implements Command 
 {
-	private final String HELP = "Usage: `?servers`";
+	private final String HELP = "Usage: `?version`";
 	@Override
 	public boolean called(String[] args, MessageReceivedEvent event) 
 	{
@@ -18,7 +18,7 @@ public class ServerCommand implements Command
 	@Override
 	public void action(String[] args, MessageReceivedEvent event, List<User> data) 
 	{
-		event.getTextChannel().sendMessage("You can check on the server status at this website: http://cmmcd.com/PokemonGo/");
+		event.getTextChannel().sendMessage(event.getAuthor().getAsMention() + ", currently I am in version **0.02 Beta.**");
 		event.getMessage().deleteMessage();
 	}
 

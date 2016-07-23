@@ -1,5 +1,8 @@
 package discordbot;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +14,8 @@ import java.util.Scanner;
 import net.dv8tion.jda.*;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.utils.AvatarUtil;
+import net.dv8tion.jda.utils.AvatarUtil.Avatar;
 
 public class Main 
 {
@@ -23,8 +28,9 @@ public class Main
 	{
 		try
 		{
-			jda = new JDABuilder().addListener(new BotListener()).setBotToken("MjA0NTg5Nzk1NTM0NDM4NDAw.Cm56UQ.PjzZcxzRrOckQq00NaPRUE0hwrw").buildBlocking();
+			jda = new JDABuilder().addListener(new BotListener()).setBotToken("TOKEN").buildBlocking();
 			jda.setAutoReconnect(true);
+			jda.getAccountManager().setGame("with Fire");
 		}catch(Exception e)
 		{
 			e.printStackTrace();
@@ -41,6 +47,10 @@ public class Main
 		commands.put("undo", new UndoCommand());
 		commands.put("unban", new UnbanCommand());
 		commands.put("help", new HelpCommand());
+		commands.put("valor", new ValorCommand());
+		commands.put("praise", new PraiseCommand());
+		commands.put("version", new VersionCommand());
+		commands.put("whoami", new WhoAmICommand());
 	}
 	
 	public static void handleCommand(CommandParser.CommandContainer cmd)
